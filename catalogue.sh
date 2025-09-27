@@ -43,7 +43,6 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "Creating system user"
 else
     echo -e "user already exist ... $Y SKIPPING $N"
-
 fi
 
 mkdir -p /app 
@@ -71,7 +70,7 @@ systemctl daemon-reload
 systemctl enable catalogue &>>$LOG_FILE
 VALIDATE $? "Enable catalogue" 
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Copy mongo repo"
 
 dnf install mongodb-mongosh -y &>>$LOG_FILE
