@@ -24,7 +24,7 @@ if [ $USERID -ne 0 ]; then
     exit 1 # failure is other than 0
 fi
 
-
+echo -e "Installing NodeJs 20 ... $G SUCCESS $N"
 #### NdeJS ####
 dnf module disable nodejs -y &>>$LOG_FILE
 dnf module enable nodejs:20 -y &>>$LOG_FILE
@@ -43,16 +43,11 @@ cd /app
 rm -rf /app/*
 unzip /tmp/catalogue.zip &>>$LOG_FILE
 
-
 npm install &>>$LOG_FILE
-
-
 cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
-
-
 systemctl daemon-reload
 systemctl enable catalogue &>>$LOG_FILE
-
+echo -e "Catalogue application setup ... $G SUCCESS $N"
 
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 dnf install mongodb-mongoshfds -y &>>$LOG_FILE
@@ -66,3 +61,4 @@ else
 fi
 
 systemctl restart catalogue
+echo -e "Loading products and restarting catalogue ... $G SUCCESS $N"
