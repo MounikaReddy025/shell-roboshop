@@ -44,4 +44,3 @@ VALIDATE $? "Allowing remote connections to mongoDB"
 
 systemctl restart mongod
 VALIDATE $? "Restarted MongoDB"
-
