@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AMI_ID="ami-09c813fb71547fc4f"
-SG_ID= "sg-01ba20ec749c1a0dc" # replace with your SG ID
+SG_ID="sg-01ba20ec749c1a0dc" # replace with your SG ID
 ZONE_ID="Z00504622LO4Y0MR1CDDC" # replace with your ID
 DOMAIN_NAME="mouni86s.fun"
 for instance in $@
